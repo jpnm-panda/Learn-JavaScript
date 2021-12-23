@@ -14,20 +14,27 @@
     <body>
 
         <div class="container">
-            <p id="timer1" class="timer"> 00:00:00 </p>
-            <p id="timer2" class="timer">00:00:00</p>
+            <p id="timer" class="timer"> 00:00:00 </p>
 
             <div>
                 <button class="btn btn-lg btn-primary">START</button>
             </div>
         </div>
         <script>
-            document.getElementById('timer1').remove();
-
-        </script>
-
-        <script>
-            document.getElementById('timer2').innerHTML = '00:00:01';
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var addZero = function (value) {
+                if (value < 10) {
+                    value = '0' + value;
+                }
+                return value;
+            }
+            seconds = addZero(seconds)
+            minutes = addZero(minutes)
+            hours = addZero(hours)
+            document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
 
         </script>
 
