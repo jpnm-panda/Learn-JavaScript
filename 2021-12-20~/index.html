@@ -17,24 +17,27 @@
             <p id="timer" class="timer"> 00:00:00 </p>
 
             <div>
-                <button class="btn btn-lg btn-primary">START</button>
+                <button id="start_stop" class="btn btn-lg btn-primary">START</button>
             </div>
         </div>
         <script>
-            var now = new Date();
-            var hours = now.getHours();
-            var minutes = now.getMinutes();
-            var seconds = now.getSeconds();
             var addZero = function (value) {
                 if (value < 10) {
                     value = '0' + value;
                 }
                 return value;
             }
-            seconds = addZero(seconds)
-            minutes = addZero(minutes)
-            hours = addZero(hours)
-            document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
+            document.getElementById('start_stop').addEventListener('click',
+                function () {
+                    var now = new Date();
+                    var hours = now.getHours();
+                    hours = addZero(hours)
+                    var minutes = now.getMinutes();
+                    minutes = addZero(minutes)
+                    var seconds = now.getSeconds();
+                    seconds = addZero(seconds)
+                    document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
+                });
 
         </script>
 
