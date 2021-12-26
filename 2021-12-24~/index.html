@@ -23,11 +23,27 @@
             <div class="photo">
                 <img src="./images/cat-5773481_640.jpg" alt="猫の画像">
                 <div class="inner">
-                    <p>コメント1<span>nickname</span></p>
+                    <p>コメント1 <span>nickname</span></p>
                 </div>
 
             </div>
         </div>
+
+        <script>
+            var images = [{
+                    "path": "images/cat-5773481_640.jpg",
+                    "name": "name01",
+                    "caption": "コメント1"
+                },
+                {
+                    "path": "images/IMG_1094.HEIC",
+                    "name": "name02",
+                    "caption": "コメント2"
+                }
+            ];
+            alert(images[0].caption);
+
+        </script>
     </body>
 
 </html>
