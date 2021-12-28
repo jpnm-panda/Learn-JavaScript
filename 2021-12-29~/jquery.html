@@ -27,8 +27,9 @@
         </div>
         <script type="text/javascript" src="../../Resource/js/jquery.min.js"></script>
         <script>
-            $('#img_unit').html('ここに、画像リストが表示されます');
-            $('#img_unit').css('margin-top', '100px');
+            $.getJSON('https://h2o-space.com/htmlbook/images.php', function (date) {
+                alert('データを受信しました')
+            });
 
         </script>
     </body>
