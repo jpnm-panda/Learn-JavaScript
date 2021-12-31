@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Learn-Javascript-My-photos-by-jQuery</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Open+Sans+Condensed:wght@300&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="../../Resource/js/jquery.min.js">
+    </head>
+
+    <body>
+        <header>
+            <h1>My Photos</h1>
+        </header>
+
+        <div class="container">
+            <div id="img_unit">
+                <div class="photo" v-for="Photo in Photos">
+                    <img :src="Photo.path" alt="写真">
+                    <div class="inner">
+                        <p>{{ Photo.caption }}<span>{{ Photo.name }}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+        <script type="text/javascript" src="../../Resource/js/jquery.min.js"></script>
+
+        <script>
+            var app = new Vue({
+                el: '#img_unit',
+                data: {
+                    Photos: []
+                },
+                created: function () {
+                    var self = this;
+                    $.getJSON('https://h2o-space.com/htmlbook/images.php', function (data) {
+                        self.Photos = data;
+                    });
+                }
+            });
+
+        </script>
+    </body>
+
+</html>
